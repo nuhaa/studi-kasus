@@ -7,6 +7,41 @@ use App\Models\Permission;
 
 trait HasPermissionTrait
 {
+	/* givePermissionTo */
+	public function givePermissionTo(... $permission)
+	{
+		// dd(array_flatten($permission));
+		// untuk mengambil semua permission
+		// ambil model permission
+		$permissions = $this->getAllPermissions(array_flatten($permission));
+		// dd($permission);
+		if ($permissions === null) {
+			return $this;
+		}
+
+		$this->permissions()->saveMany($permissions);
+		return $this;
+		//save many
+	}
+	/* revokePermissionTo */
+	public function revokePermissionTo(... $permissions)
+	{
+		$permissions = $this->getAllPermissions(array_flatten($permissions));
+		$this->permissions()->detach($permissions);
+		return $this;
+	}
+
+	public function updatePermission(... $permissions)
+	{
+		$this->permissions()->detach();
+		return $this->givePermissionTo($permissions);
+	}
+
+	protected function getAllPermissions(array $permissions)
+	{
+		return Permission::whereIn('name', $permissions)->get();
+	}
+
 	/* hasPermissionTo */
 	public function hasPermissionTo($permission)
 	{

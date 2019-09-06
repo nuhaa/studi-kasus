@@ -35,3 +35,10 @@
 	- Buat method hasPermissionThroughRole dan hasPermission(untuk membuat cek permission yang mempuyai role tertentu, dan juga cek permission)
 	- tabel users_permissions digunakan untuk memberikan permission spesial untuk user, misal user tertentu bisa mendelete akun seorang user
  */
+
+/* 10 Setup Roles & Permissions - Giving, Revoking, Updating Permissions
+	// untuk memberikan permission, menghapus, dan mengupdate permission
+	1. givePermissionTo (memberikan permission)
+	2. revokePermissionTo (menghapus permission)
+	3. updatePermission (mengupdate permission)
+ */
