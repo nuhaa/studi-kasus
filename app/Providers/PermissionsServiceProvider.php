@@ -6,6 +6,7 @@ use Illuminate\Support\ServiceProvider;
 /* tambahan */
 use App\Models\Permission;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\Blade;
 
 class PermissionsServiceProvider extends ServiceProvider
 {
@@ -32,6 +33,11 @@ class PermissionsServiceProvider extends ServiceProvider
             Gate::define($permission->name, function($user) use ($permission){
                 return $user->hasPermissionTo($permission);
             });
+        });
+
+        /*untuk membuat directive role di templating blade*/
+        Blade::if('role', function($role){
+            return auth()->user()->hasRole($role);
         });
     }
 }

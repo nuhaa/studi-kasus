@@ -42,3 +42,9 @@
 	2. revokePermissionTo (menghapus permission)
 	3. updatePermission (mengupdate permission)
  */
+
+/*
+	11 Setup Roles & Permissions - Custom Blade Directives (@roles)
+	// membuat blade directive role
+	-> membuat di PermissionsServiceProvider.php (@role @endrole)
+ */
