@@ -18,5 +18,6 @@ Route::get('/cek', function(Request $request){
 	// return view('admin.index');
 	$user = $request->user();
 	// dd($user->hasRole('admin'));
-	dd($user->hasPermissionTo('add products'));
-})->name('cek');
+	// dd($user->hasPermissionTo('add_product'));
+	dd($user->can('delete_users'));
+})->name(' cek');

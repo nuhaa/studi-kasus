@@ -29,3 +29,9 @@
 	- Buat provider baru untuk cek permission nya di awal (php artisan make:provider PermissionsServiceProvider)
 	- Alur provider, 1. ambil semua permission di model, 
  */
+
+/* 9, Setup Role - Permission
+	// 9
+	- Buat method hasPermissionThroughRole dan hasPermission(untuk membuat cek permission yang mempuyai role tertentu, dan juga cek permission)
+	- tabel users_permissions digunakan untuk memberikan permission spesial untuk user, misal user tertentu bisa mendelete akun seorang user
+ */

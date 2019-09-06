@@ -11,13 +11,24 @@ trait HasPermissionTrait
 	public function hasPermissionTo($permission)
 	{
 		// Permission Berdasarkan Role
-		return $this->hasPermission($permission);	
+		return $this->hasPermissionThroughRole($permission) || $this->hasPermission($permission);	
 	}
 
+	/* hasPermissionThroughRole */
+	protected function hasPermissionThroughRole($permission)
+	{
+		foreach ($permission->roles as $role) {
+			if ($this->roles->contains($role)) {
+				return true;
+			}
+		}
+		return false;
+	}
+ 
 	/* hasPermission */
 	protected function hasPermission($permission)
 	{
-		return (bool) $this->permissions->where('name', $permission)->count();
+		return (bool) $this->permissions->where('name', $permission->name)->count();
 	}
 
 	/* hasRole */
