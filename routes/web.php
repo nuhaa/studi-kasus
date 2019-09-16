@@ -20,5 +20,5 @@ Route::get('/cek', function(Request $request){
 	// dd($user->hasRole('admin'));
 	// dd($user->hasPermissionTo('add_product'));
 	// dd($user->can('delete_users'));
-	$user->updatePermission('add_product','delete_users','delete_product');
+	// $user->updatePermission('add_product','delete_users','delete_product');
 })->name(' cek');
