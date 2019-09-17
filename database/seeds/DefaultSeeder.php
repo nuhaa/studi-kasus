@@ -25,7 +25,7 @@ class DefaultSeeder extends Seeder
         ],[
           'name' => 'Pengguna',
           'email' => 'pengguna@gmail.com',
-          'password' => '$2y$10$AX/3UB1jKgA109442IBU5OeOjgqXundL8NrdOAK1w4y0sZ3MOD8GO',
+          'password' => bcrypt('12345678'),
           'address' => 'Surabaya',
           'phone' => '085712551156',
           'created_at' => Carbon::now(),

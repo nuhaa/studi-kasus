@@ -19,7 +19,7 @@ Route::get('/cek', function(Request $request){
 	$user = $request->user();
   // $user->assignRole('admin');
   // $user->removeRole('admin');
-  $user->syncRoles('admin');
+  // $user->syncRoles('admin');
 	// dd($user->hasRole('admin'));
 	// dd($user->hasPermissionTo('add_product'));
 	// dd($user->can('delete_users'));

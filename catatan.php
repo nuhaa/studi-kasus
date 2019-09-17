@@ -61,3 +61,8 @@
   - buat method di HasPermissionTrait
   - testing dari routing
  */
+
+/*
+  14 Setup Application - Roles & User Seeder
+  - gunakan DefaultSeeder.php
+*/
