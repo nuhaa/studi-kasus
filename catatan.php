@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 07 Juni 2018
 /* 1. Buat Migration Untuk Database */
@@ -10,9 +10,9 @@
 	- Ganti providers->users->model sesuai dengan folder nya
  */
 
-/* 3 - 4. Templating Blade 
+/* 3 - 4. Templating Blade
 	- Copy master template ke folder public
-	- Buat template ber-part	
+	- Buat template ber-part
 */
 
 /* 5. install laravel debugbar (composer require barryvdh/laravel-debugbar --dev) */
@@ -27,7 +27,7 @@
 	// 8
 	- Buat function didalam "hasPermissionTrait", 1. hasRole, 2. hasPermissionTo, 3. hasPermission
 	- Buat provider baru untuk cek permission nya di awal (php artisan make:provider PermissionsServiceProvider)
-	- Alur provider, 1. ambil semua permission di model, 
+	- Alur provider, 1. ambil semua permission di model,
  */
 
 /* 9, Setup Role - Permission
@@ -48,3 +48,9 @@
 	// membuat blade directive role
 	-> membuat di PermissionsServiceProvider.php (@role @endrole)
  */
+
+/*
+  12 Setup Roles & Permissions - Middleware
+  - buat middleware, routing untuk membatasi hak acces
+  - jangan lupa untuk daftarkan RoleMiddleware kedalam kerne.php
+  */

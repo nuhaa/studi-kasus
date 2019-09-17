@@ -22,3 +22,7 @@ Route::get('/cek', function(Request $request){
 	// dd($user->can('delete_users'));
 	// $user->updatePermission('add_product','delete_users','delete_product');
 })->name(' cek');
+
+Route::get('admin', function(){
+  return 'Admin Panel';
+})->middleware('role:admin');
