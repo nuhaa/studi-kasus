@@ -17,6 +17,9 @@ Route::get('/awal', function(){
 Route::get('/cek', function(Request $request){
 	// return view('admin.index');
 	$user = $request->user();
+  // $user->assignRole('admin');
+  // $user->removeRole('admin');
+  $user->syncRoles('admin');
 	// dd($user->hasRole('admin'));
 	// dd($user->hasPermissionTo('add_product'));
 	// dd($user->can('delete_users'));

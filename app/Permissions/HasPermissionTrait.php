@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace App\Permissions;
 
@@ -7,6 +7,39 @@ use App\Models\Permission;
 
 trait HasPermissionTrait
 {
+	/* assign Role */
+	public function assignRole(... $roles)
+	{
+		// ambil model role
+		$roles = $this->getAllRoles(array_flatten($roles));
+
+		if ($roles == null) {
+				return $this;
+		}
+
+		$this->roles()->saveMany($roles);
+
+		return $this;
+
+	}
+
+	/* removeRole */
+	public function removeRole(... $roles)
+	{
+		$roles = $this->getAllRoles(array_flatten($roles));
+
+		$this->roles()->detach($roles);
+
+		return $this;
+	}
+
+	/* syncRole */
+	public function syncRoles(... $roles)
+	{
+		$this->roles()->detach();
+		return $this->assignRole($roles);
+	}
+
 	/* givePermissionTo */
 	public function givePermissionTo(... $permission)
 	{
@@ -42,11 +75,16 @@ trait HasPermissionTrait
 		return Permission::whereIn('name', $permissions)->get();
 	}
 
+	protected function getAllRoles(array $roles)
+	{
+		return Role::whereIn('name', $roles)->get();
+	}
+
 	/* hasPermissionTo */
 	public function hasPermissionTo($permission)
 	{
 		// Permission Berdasarkan Role
-		return $this->hasPermissionThroughRole($permission) || $this->hasPermission($permission);	
+		return $this->hasPermissionThroughRole($permission) || $this->hasPermission($permission);
 	}
 
 	/* hasPermissionThroughRole */
@@ -59,7 +97,7 @@ trait HasPermissionTrait
 		}
 		return false;
 	}
- 
+
 	/* hasPermission */
 	protected function hasPermission($permission)
 	{

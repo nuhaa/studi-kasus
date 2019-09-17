@@ -54,3 +54,10 @@
   - buat middleware, routing untuk membatasi hak acces
   - jangan lupa untuk daftarkan RoleMiddleware kedalam kerne.php
   */
+
+/*
+  13 Setup Roles & Permissions - Assign, Remove , Sync Role
+  - menambah, menghapus, meng-update user roles
+  - buat method di HasPermissionTrait
+  - testing dari routing
+ */
