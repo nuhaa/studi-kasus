@@ -10,13 +10,17 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/awal', function(){
-	return view('admin.index');
-})->name('awal');
+Route::get('login', function () {
+    return view('admin.login');
+});
 
-Route::get('/cek', function(Request $request){
+// Route::get('/awal', function(){
+// 	return view('admin.index');
+// })->name('awal');
+
+// Route::get('/cek', function(Request $request){
 	// return view('admin.index');
-	$user = $request->user();
+	// $user = $request->user();
   // $user->assignRole('admin');
   // $user->removeRole('admin');
   // $user->syncRoles('admin');
@@ -24,8 +28,8 @@ Route::get('/cek', function(Request $request){
 	// dd($user->hasPermissionTo('add_product'));
 	// dd($user->can('delete_users'));
 	// $user->updatePermission('add_product','delete_users','delete_product');
-})->name(' cek');
+// })->name(' cek');
 
-Route::get('admin', function(){
-  return 'Admin Panel';
-})->middleware('role:admin');
+// Route::get('admin', function(){
+//   return 'Admin Panel';
+// })->middleware('role:admin');
