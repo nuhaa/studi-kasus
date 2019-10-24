@@ -61,8 +61,23 @@
   - buat method di HasPermissionTrait
   - testing dari routing
  */
-
 /*
   14 Setup Application - Roles & User Seeder
   - gunakan DefaultSeeder.php
+*/
+
+/*
+  15 Setup Admin Route
+  - setup Seeder
+  - cek routing dan middleware
+*/
+
+/*
+  16 Admin Login
+  - redirect url Login
+*/
+
+/*
+  17 Cleaning Up Admin Template
+  - clean admin, menyesuaikan kebutuhan tampilan
 */

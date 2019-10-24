@@ -18,7 +18,7 @@ class DefaultSeeder extends Seeder
         User::insert([[
           'name' => 'Muhammad Ulin Nuha',
           'email' => 'nuha.um@gmail.com',
-          'password' => '$2y$10$AX/3UB1jKgA109442IBU5OeOjgqXundL8NrdOAK1w4y0sZ3MOD8GO',
+          'password' => bcrypt('12345678'),
           'address' => 'Ketandan Lama 5A, Genteng - Ketabang',
           'phone' => '085712551156',
           'created_at' => Carbon::now(),

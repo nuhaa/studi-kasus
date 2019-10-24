@@ -1,7 +1,7 @@
 <?php
 
-use Illuminate\Http\Request;
+// use Illuminate\Http\Request;
 
 Route::get('login', function () {
-    return view('admin.login');
-});
+    return view('admin.index');
+})->name('admin.index');
