@@ -26,8 +26,14 @@
                 <td>{{ $category->slug }}</td>
                 <td>{{ $category->description }}</td>
                 <td>
-                  <a href="" class="btn btn-warning">Edit</a>
-                  <a href="" class="btn btn-danger">Delete</a>
+                  <a href="{{ route('category.edit', $category->id) }}" class="btn btn-warning">Edit</a>
+                  {{-- <a href="{{ route('category.destroy', $category->id) }}" class="btn btn-danger">Delete</a> --}}
+                  <button class="btn btn-danger" id='delete' data-title='{{ $category->name }}' href={{ route('category.destroy', $category->id) }}>Delete</button>
+                  <form action="" method="post" id="deleteForm">
+                    @csrf
+                    @method("DELETE")
+                    <input type="submit" style="display:none" value="">
+                  </form>
                 </td>
               </tr>
             @endforeach
@@ -37,3 +43,32 @@
     </div>
   </div>
 @endsection
+@push('scripts')
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+  <script type="text/javascript">
+    $('button#delete').on('click', function(){
+        var href  = $(this).attr('href');
+        var title = $(this).data('title');
+
+        Swal.fire({
+          title: 'Delete this '+ title +' category',
+          text: "One deleted, you will not be able to recover this category",
+          type: 'warning',
+          showCancelButton: true,
+          confirmButtonColor: '#3085d6',
+          cancelButtonColor: '#d33',
+          confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+          if (result.value) {
+            document.getElementById('deleteForm').action = href;
+            document.getElementById('deleteForm').submit();
+            Swal.fire(
+              'Deleted!',
+              'Your category has been deleted.',
+              'success'
+            )
+          }
+        });
+    });
+  </script>
+@endpush

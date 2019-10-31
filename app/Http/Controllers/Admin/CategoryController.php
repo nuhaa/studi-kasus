@@ -43,6 +43,22 @@ class CategoryController extends Controller
           'name' => 'required|min:3',
           'description' => 'required'
         ]);
+
+        /*opsi 1*/
+        /*$category = new Category;
+        $category->name = ucwords($request->name);
+        $category->description = $request->description;
+        $category->slug = str_slug($request->name);
+        $category->save();*/
+
+        /*opsi 2 untuk method create (Eloquent) harus diberikan protected fillable di model nya*/
+        Category::create([
+          'name' => ucwords($request->name),
+          'description' => ucwords($request->description),
+          'slug' => str_slug($request->name), // helper untuk merubah format name jadi slug
+        ]);
+
+        return redirect()->route('category.index');
     }
 
     /**
@@ -64,7 +80,10 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-        //
+        $category = Category::find($id);
+        return view('admin.category.edit', [
+            'category' => $category
+        ]);
     }
 
     /**
@@ -76,7 +95,19 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+          'name' => 'required|min:3',
+          'description' => 'required'
+        ]);
+
+        $category = Category::find($id);
+        $category->update([
+            'name' => ucwords($request->name),
+            'description' => ucwords($request->description),
+            'slug' => str_slug($request->name),
+        ]);
+
+        return redirect()->route('category.index');
     }
 
     /**
@@ -87,6 +118,9 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $category = Category::find($id);
+        $category->delete();
+
+        return back();
     }
 }

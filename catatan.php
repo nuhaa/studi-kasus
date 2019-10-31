@@ -87,6 +87,10 @@
   membuat tampilan untuk read data category, data inputan awal langsung ke database
   19 CRUD Category - Add Data ( @create )
   membuat form add category, dan memberikan validasi
-
-
+  20 CRUD Category - Add Data ( @store )
+  menambah data kategori
+  21 CRUD Category - Edit Data ( @edit , @update )
+  edit data category
+  22 CRUD Category - Delete Category ( @destroy )
+  hapus data category
 */
