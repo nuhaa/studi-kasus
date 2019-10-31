@@ -81,3 +81,12 @@
   17 Cleaning Up Admin Template
   - clean admin, menyesuaikan kebutuhan tampilan
 */
+
+/*
+  18 CRUD Category - Index ( Read )
+  membuat tampilan untuk read data category, data inputan awal langsung ke database
+  19 CRUD Category - Add Data ( @create )
+  membuat form add category, dan memberikan validasi
+
+
+*/

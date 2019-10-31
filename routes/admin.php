@@ -2,6 +2,8 @@
 
 // use Illuminate\Http\Request;
 
-Route::get('login', function () {
+Route::get('/dashboard', function () {
     return view('admin.index');
 })->name('admin.index');
+
+Route::resource('/category', 'CategoryController');

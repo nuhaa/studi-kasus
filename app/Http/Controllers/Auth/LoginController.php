@@ -49,8 +49,8 @@ class LoginController extends Controller
     {
         // dd($user);
         if ($user->hasRole('admin')) {
+          // return redirect('/admin');
           return redirect()->route('admin.index');
-          // return redirect()->route('admin.index');
         }
     }
 }

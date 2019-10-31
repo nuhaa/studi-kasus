@@ -7,13 +7,13 @@
 <div class="wrapper">
   {{-- header --}}
   @include('admin.templates.partials._header')
-  
+
   {{-- sidebar --}}
   @include('admin.templates.partials._sidebar')
 
   {{-- content --}}
   <div class="content-wrapper">
-    
+
     {{-- breadcrumb --}}
     @include('admin.templates.partials._breadcrumb')
     <section class="content">
