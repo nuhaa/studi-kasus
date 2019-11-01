@@ -1,6 +1,7 @@
 @extends('admin.templates.default');
 
 @section('content')
+@include('admin.templates.partials._alert')
   <div class="row">
     <div class="col-md-12">
       <div class="box">
@@ -26,9 +27,9 @@
                 <td>{{ $category->slug }}</td>
                 <td>{{ $category->description }}</td>
                 <td>
-                  <a href="{{ route('category.edit', $category->id) }}" class="btn btn-warning">Edit</a>
+                  <a href="{{ route('category.edit', $category->id) }}" class="btn btn-warning"><i class="fa fa-edit"></i> Edit</a>
                   {{-- <a href="{{ route('category.destroy', $category->id) }}" class="btn btn-danger">Delete</a> --}}
-                  <button class="btn btn-danger" id='delete' data-title='{{ $category->name }}' href={{ route('category.destroy', $category->id) }}>Delete</button>
+                  <button class="btn btn-danger" id='delete' data-title='{{ $category->name }}' href={{ route('category.destroy', $category->id) }}> <i class="fa fa-trash"></i> Delete</button>
                   <form action="" method="post" id="deleteForm">
                     @csrf
                     @method("DELETE")

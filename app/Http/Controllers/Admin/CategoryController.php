@@ -58,7 +58,7 @@ class CategoryController extends Controller
           'slug' => str_slug($request->name), // helper untuk merubah format name jadi slug
         ]);
 
-        return redirect()->route('category.index');
+        return redirect()->route('category.index')->with('success', 'Category Added');
     }
 
     /**
@@ -107,7 +107,7 @@ class CategoryController extends Controller
             'slug' => str_slug($request->name),
         ]);
 
-        return redirect()->route('category.index');
+        return redirect()->route('category.index')->with('info', 'Category Edited');
     }
 
     /**
@@ -121,6 +121,6 @@ class CategoryController extends Controller
         $category = Category::find($id);
         $category->delete();
 
-        return back();
+        return back()->with('danger', 'Category Deleted');
     }
 }

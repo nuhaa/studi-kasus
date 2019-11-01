@@ -93,4 +93,6 @@
   edit data category
   22 CRUD Category - Delete Category ( @destroy )
   hapus data category
+  23 CRUD Category - Add Alert ( Flash Message )
+  membuat alert untuk tambah, edit, delete
 */
