@@ -78,9 +78,11 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    // public function edit($id) // awal
+    public function edit(Category $category) // setelah refactoring
     {
-        $category = Category::find($id);
+        // dd($category);
+        // $category = Category::find($id);
         return view('admin.category.edit', [
             'category' => $category
         ]);
@@ -93,14 +95,14 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Category $category)
     {
         $this->validate($request, [
           'name' => 'required|min:3',
           'description' => 'required'
         ]);
 
-        $category = Category::find($id);
+        // $category = Category::find($id);
         $category->update([
             'name' => ucwords($request->name),
             'description' => ucwords($request->description),
@@ -116,9 +118,9 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Category $category)
     {
-        $category = Category::find($id);
+        // $category = Category::find($id);
         $category->delete();
 
         return back()->with('danger', 'Category Deleted');

@@ -83,6 +83,7 @@
 */
 
 /*
+  31 Oktober 2019
   18 CRUD Category - Index ( Read )
   membuat tampilan untuk read data category, data inputan awal langsung ke database
   19 CRUD Category - Add Data ( @create )
@@ -95,4 +96,20 @@
   hapus data category
   23 CRUD Category - Add Alert ( Flash Message )
   membuat alert untuk tambah, edit, delete
+  24 Bug Fix Dialog Delete
+  hanya memperbaiki kesalahan untuk menampilka alert notice
+*/
+
+/*
+  1 Oktober 2019
+  25 CRUD Category - Small Refactoring
+  memmanfaatkan route binding laravel untuk refactorung modeliing
+  26 CRUD Category - Pagination
+  - php artisan vendor:publish
+  - pilih laravel-pagination
+  - sesuaikan class paginate nya sesuai templatenya
+  - untuk memanggil {{ $categories->links('vendor.pagination.adminlte') }}
+  27 Category Seeder
+  - membuat kategori seeder
+  - php artisan make:migrate --seed
 */

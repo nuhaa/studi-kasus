@@ -40,6 +40,9 @@
             @endforeach
           </table>
         </div>
+        <div class="box-footer clearfix">
+          {{ $categories->links('vendor.pagination.adminlte') }}
+        </div>
       </div>
     </div>
   </div>
