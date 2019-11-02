@@ -60,6 +60,7 @@
   - menambah, menghapus, meng-update user roles
   - buat method di HasPermissionTrait
   - testing dari routing
+  - gunakan findOrFail untuk query yang bisa langsung 404
  */
 /*
   14 Setup Application - Roles & User Seeder
@@ -112,4 +113,14 @@
   27 Category Seeder
   - membuat kategori seeder
   - php artisan make:migrate --seed
+*/
+
+/*
+  2 Oktober 2019
+  28 Product Index & Create
+  Buat halaman product dan form create
+  29 CRUD Product - @store
+  Menampilkan data hasil create
+  30 CRUD Product - @edit, @update & @destroy
+  Buat edit dan hapus 
 */

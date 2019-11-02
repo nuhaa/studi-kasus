@@ -83,6 +83,7 @@ class CategoryController extends Controller
     {
         // dd($category);
         // $category = Category::find($id);
+        // gunakan findOrFail untuk query yang bisa langsung 404
         return view('admin.category.edit', [
             'category' => $category
         ]);

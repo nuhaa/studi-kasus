@@ -21,6 +21,7 @@
       <li class="header">MAIN NAVIGATION</li>
       <li class='{{ Request::path() == "admin/dashboard" ? "active" : "" }}' ><a href="{{ route('admin.index') }}"><i class="fa fa-angle-double-right"></i> <span>Dashboard</span></a></li>
       <li class='{{ (Request::is('admin/category/*') or Request::is('admin/category'))  ? "active" : "" }}' ><a href="{{ route('category.index') }}"><i class="fa fa-angle-double-right"></i> <span>Category</span></a></li>
+      <li class='{{ (Request::is('admin/product/*') or Request::is('admin/product'))  ? "active" : "" }}' ><a href="{{ route('product.index') }}"><i class="fa fa-angle-double-right"></i> <span>Product</span></a></li>
     </ul>
   </section>
   <!-- /.sidebar -->

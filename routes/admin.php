@@ -7,3 +7,4 @@ Route::get('/dashboard', function () {
 })->name('admin.index');
 
 Route::resource('/category', 'CategoryController');
+Route::resource('/product', 'ProductController');
