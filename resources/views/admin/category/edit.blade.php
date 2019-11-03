@@ -6,7 +6,7 @@
     <div class="box-header with-border">
       <div class="box-title">Edit a Category</div>
     </div>
-    <form action="{{ route('category.update', $category->id) }}" class="from-horizontal" method="post">
+    <form action="{{ route('category.update', $category) }}" class="from-horizontal" method="post">
       @csrf
       @method("PUT")
       <div class="box-body">

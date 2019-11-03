@@ -35,9 +35,9 @@
                 </td>
                 <td>{{ number_format($product->price, 0) }}</td>
                 <td>
-                  <a href="{{ route('product.edit', $product->id) }}" class="btn btn-warning"><i class="fa fa-edit"></i> Edit</a>
+                  <a href="{{ route('product.edit', $product) }}" class="btn btn-warning"><i class="fa fa-edit"></i> Edit</a>
                   {{-- <a href="{{ route('category.destroy', $category->id) }}" class="btn btn-danger">Delete</a> --}}
-                  <button class="btn btn-danger" id='delete' data-title='{{ $product->name }}' href={{ route('product.destroy', $product->id) }}> <i class="fa fa-trash"></i> Delete</button>
+                  <button class="btn btn-danger" id='delete' data-title='{{ $product->name }}' href={{ route('product.destroy', $product) }}> <i class="fa fa-trash"></i> Delete</button>
                   <form action="" method="post" id="deleteForm">
                     @csrf
                     @method("DELETE")

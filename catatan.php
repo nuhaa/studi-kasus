@@ -122,5 +122,21 @@
   29 CRUD Product - @store
   Menampilkan data hasil create
   30 CRUD Product - @edit, @update & @destroy
-  Buat edit dan hapus 
+  Buat edit dan hapus
+*/
+
+/*
+    31 Improvement - Route to Slug
+    Ganti url dengan slug, gunakan di model nya, ganti url edit dan destroy nya juga
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
+
+    32 Improvement - Problem n+1
+    Untuk merampingkan query untuk menggunakan eager load dengan cara, memanggil model dari relasi yang di gunakan saat di load
+    $products->load('categories'); (di file ProductController)
+
+    33 Fix Bug Update Product
+    Saya sudah bener kok
 */
