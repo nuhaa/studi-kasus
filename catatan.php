@@ -116,7 +116,7 @@
 */
 
 /*
-  2 Oktober 2019
+  2 November 2019
   28 Product Index & Create
   Buat halaman product dan form create
   29 CRUD Product - @store
@@ -126,6 +126,7 @@
 */
 
 /*
+    3 November 2019
     31 Improvement - Route to Slug
     Ganti url dengan slug, gunakan di model nya, ganti url edit dan destroy nya juga
     public function getRouteKeyName()
@@ -139,4 +140,37 @@
 
     33 Fix Bug Update Product
     Saya sudah bener kok
+*/
+
+/*
+  5 November 2019
+  34 MIgration Add Image Field on Products Table
+  - untuk menambahkan field pada table yang sudah ada, harus buat migration baru
+  - php artisan make:migration add_image_on_products_table --table=products
+  - up : $table->string('image')->nullable()->default(null)->after('description');
+  - down : $table->dropColoumn('image');
+
+  35 Add Upload Product Image Function
+  - ganti config/filesystems.php dari 'root' => storage_path('app') jadi 'root' => public_path() . 'images',
+
+  36 Show Uploaded Image Efficiently
+  - buat function untuk memanggil direcory root products
+    public function getImage()
+    {
+        return asset('images/'. $this->image);
+    }
+
+  37 Update Image Function
+  - hapus jika image sudah ada
+    if ($request->hasFile('image')) {
+        if ($product->image) {
+          Storage::delete($product->image);
+        }
+        $image = $request->file('image')->store('products');
+    } else {
+      $image = $product->image;
+    }
+
+  38 Delete Image when Delete Product
+  - tambahkan Storage::delete($product->image) untuk menghapus file image nya
 */

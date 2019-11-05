@@ -16,6 +16,7 @@
             <tr>
               <th style="width:10px">No</th>
               <th>Name</th>
+              <th>Image</th>
               <th>Slug</th>
               <th>Description</th>
               <th>Category</th>
@@ -26,6 +27,7 @@
               <tr>
                 <td>{{ $loop->iteration }}</td>
                 <td>{{ $product->name }}</td>
+                <td><img src="{{ $product->getImage() }}" alt="{{ $product->name }}"></td>
                 <td>{{ $product->slug }}</td>
                 <td>{{ $product->description }}</td>
                 <td>

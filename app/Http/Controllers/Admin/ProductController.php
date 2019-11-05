@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\Controller;
 use App\Models\Product;
 use App\Models\Category;
@@ -17,6 +18,7 @@ class ProductController extends Controller
     public function index()
     {
         $products = Product::orderBy('name', 'asc')->paginate(10);
+        // ambil data categories
         $products->load('categories');
         return view('admin.product.index', [
             'products' => $products
@@ -51,11 +53,14 @@ class ProductController extends Controller
             'category'    => 'required',
         ]);
 
+        $image = $request->file('image')->store('products');
+
         $product = Product::create([
             'name'        => ucwords($request->name),
             'slug'        => str_slug($request->name),
             'description' => ucfirst($request->description),
             'price'       => $request->price,
+            'image'       => $image,
         ]);
 
         $categories = Category::find($request->category);
@@ -107,11 +112,21 @@ class ProductController extends Controller
             'category'    => 'required',
         ]);
 
+        if ($request->hasFile('image')) {
+            if ($product->image) {
+              Storage::delete($product->image);
+            }
+            $image = $request->file('image')->store('products');
+        } else {
+          $image = $product->image;
+        }
+
         $product->update([
             'name'        => ucwords($request->name),
             'slug'        => str_slug($request->name),
             'description' => ucfirst(strtolower($request->description)),
             'price'       => $request->price,
+            'image'       => $image,
         ]);
 
         $product->categories()->sync($request->category);
@@ -127,6 +142,7 @@ class ProductController extends Controller
      */
     public function destroy(Product $product)
     {
+        Storage::delete($product->image);
         $product->delete();
         return redirect()->route('product.index')->with('danger', 'Product Deleted');
     }
