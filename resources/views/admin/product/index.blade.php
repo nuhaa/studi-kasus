@@ -23,9 +23,16 @@
               <th>Price</th>
               <th>Action</th>
             </tr>
+            @php
+                $page = 1;
+                if (request()->has('page')) {
+                    $page = request('page');
+                }
+                $no = config('olshop.pagination') * $page - (config('olshop.pagination') - 1);
+            @endphp
             @foreach ($products as $product)
               <tr>
-                <td>{{ $loop->iteration }}</td>
+                <td>{{ $no++ }}</td>
                 <td>{{ $product->name }}</td>
                 <td><img src="{{ $product->getImage() }}" alt="{{ $product->name }}"></td>
                 <td>{{ $product->slug }}</td>

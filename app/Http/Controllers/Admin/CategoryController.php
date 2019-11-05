@@ -15,7 +15,9 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $categories = Category::orderBy('name', 'asc')->paginate(10);
+        $categories = Category::orderBy('name', 'asc')->paginate(5);
+        // $categories = Category::orderBy('name', 'asc')->paginate(env('PAGINATION_PER_PAGE'));
+        // $categories = Category::orderBy('name', 'asc')->paginate(config('olshop.pagination'));
         return view('admin.category.index', [
           'categories' => $categories
         ]);

@@ -173,4 +173,32 @@
 
   38 Delete Image when Delete Product
   - tambahkan Storage::delete($product->image) untuk menghapus file image nya
+
+  39 CRUD Product - Refactor Update Method
+  - untuk mengganti if else di 37 update image
+    $image = $product->image ?? null;
+  40 Flexible Pagination
+  - tambah PAGINATION_PER_PAGE=10 di .env
+  - buat config sendiri di folder config
+  - buat file olshop.php
+    return [
+        'pagination' => env('PAGINATION_PER_PAGE') ?? 5,
+    ]
+  - untuk memanggil
+    $categories = Category::orderBy('name', 'asc')->paginate(config('olshop.pagination'))
+
+  41 Index Number of Items
+    membuat nomer urut sesuai pagination
+    @php
+        $page = 1;
+        if (request()->has('page')) {
+            $page = request('page');
+        }
+        $no = config('olshop.pagination') * $page - (config('olshop.pagination') - 1);
+    @endphp
+
+  42 Frontend Page - Switch to Bulma
+  - ganti bootstrap jadi bulma
+  - npm install
+  - npm install bulma
 */

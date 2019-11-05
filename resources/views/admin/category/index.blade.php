@@ -20,9 +20,16 @@
               <th>Description</th>
               <th>Action</th>
             </tr>
+            @php
+                $page = 1;
+                if (request()->has('page')) {
+                    $page = request('page');
+                }
+                $no = config('olshop.pagination') * $page - (config('olshop.pagination') - 1);
+            @endphp
             @foreach ($categories as $category)
               <tr>
-                <td>{{ $loop->iteration }}</td>
+                <td>{{ $no++ }}</td>
                 <td>{{ $category->name }}</td>
                 <td>{{ $category->slug }}</td>
                 <td>{{ $category->description }}</td>

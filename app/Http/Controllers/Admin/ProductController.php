@@ -17,7 +17,8 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = Product::orderBy('name', 'asc')->paginate(10);
+        $products = Product::orderBy('name', 'asc')->paginate(config('olshop.pagination'));
+        // $products = Product::orderBy('name', 'asc')->paginate(env('PAGINATION_PER_PAGE'));
         // ambil data categories
         $products->load('categories');
         return view('admin.product.index', [
@@ -112,13 +113,13 @@ class ProductController extends Controller
             'category'    => 'required',
         ]);
 
+        $image = $product->image ?? null;
+
         if ($request->hasFile('image')) {
             if ($product->image) {
               Storage::delete($product->image);
             }
             $image = $request->file('image')->store('products');
-        } else {
-          $image = $product->image;
         }
 
         $product->update([
