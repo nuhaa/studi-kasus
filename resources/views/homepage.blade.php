@@ -13,24 +13,26 @@
       </div>
       <div class="column is-10">
         <div class="columns is-multiline">
-          @for ($i=0; $i < 12; $i++)
+          @foreach ($products as $product)
             <div class="column is-3">
               <div class="card">
                 <div class="card-image">
-                  <figure class="image is-4by3">
-                    <img src="https://bulma.io/images/placeholders/1280x960.png" alt="">
+                  <figure class="image is-4by6">
+                    <img src="{{ $product->getImage() }}" alt="">
                   </figure>
                 </div>
                 <div class="card-content">
                   <div class="content">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                    <h5>{{ $product->name }}</h5>
+                    <p class="has-text-danger">Rp. {{ number_format($product->price, 0, ",", ".") }}</p>
                   </div>
                   <a href="" class="button is-info">Add to Cart</a>
                 </div>
               </div>
             </div>
-          @endfor
+          @endforeach
         </div>
+        {{ $products->links('vendor.pagination.bulma') }}
       </div>
     </div>
 @endsection

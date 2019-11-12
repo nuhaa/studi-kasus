@@ -2,9 +2,11 @@
 
 use Illuminate\Http\Request;
 
-Route::get('/', function () {
+/*Route::get('/', function () {
     return view('welcome');
-});
+});*/
+
+Route::get('/', 'Frontend\\HomeController@index')->name('homepage');
 
 Auth::routes();
 

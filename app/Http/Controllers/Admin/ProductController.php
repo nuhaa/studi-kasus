@@ -17,7 +17,8 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = Product::orderBy('name', 'asc')->paginate(config('olshop.pagination'));
+        $products = Product::orderBy('name', 'asc')->paginate('10');
+        // $products = Product::orderBy('name', 'asc')->paginate(config('olshop.pagination'));
         // $products = Product::orderBy('name', 'asc')->paginate(env('PAGINATION_PER_PAGE'));
         // ambil data categories
         $products->load('categories');

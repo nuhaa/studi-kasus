@@ -201,4 +201,60 @@
   - ganti bootstrap jadi bulma
   - npm install
   - npm install bulma
+  - tambahkan @import 'node_modules/bulma/bulma'; ke file resources/sass/app.scss
+*/
+
+/*
+  6 Nov 2019
+  43 Frontend - Master Layout to Bulma
+  - ganti tampilan class2 dari Frontend menggunakan class dari bulma
+
+  44 Frontend - Fix View Register Form
+  - mengganti form register class dari bootstrap dengan bulma
+
+  45 Frontend - Fix View Login Form
+  - mengganti form register class dari bootstrap dengan bulma
+
+  46 Frontend - FIx VIew Reset Password
+  - mengganti form reset class dari bootstrap dengan bulma
+  - setting mailtrap.io
+  - ganti file username dan password sesusai dengan uname pass dari mailtrap.io
+  - ganti juga di config/mail.php jadi
+    'host' => env('MAIL_HOST', 'mailtrap.io'),
+    'port' => env('MAIL_PORT', 2525),
+  - untuk mengganti link url reset password nya, masuk di .env ganti APP_URL nya
+  - APP_URL=http://127.0.0.1:8000 (sesuaikan url dengan alamat aplikasinya)
+
+  47 Frontend - Fix Function on Register Form add Assign Role
+  - memberikan role pada saat register user
+  - perbarui file Http/Controllers/Auth/RegisterController.php
+  protected function create(array $data)
+  {
+      $user = User::create([
+          'name' => strtolower($data['name']),
+          'email' => $data['email'],
+          'password' => Hash::make($data['password']),
+          'address' => $data['address'],
+          'phone' => $data['phone'],
+      ]);
+
+      $user->assignRole('user');
+
+      return $user;
+  }
+
+  48 Frontend - Index Page
+  - membuat tampilan sesuai dengan css bulma
+
+  49 Frontend - Showing Product List
+*/
+
+/*
+  12 November 2019
+
+  50 Frontend - Bulma Pagination Style
+  membuat pagination bulma
+  https://bulma.io/documentation/components/pagination/
+
+  sesuaikan views/vendor/pagination/default -> duplikat, sesuaikan dengan css nya bulma
 */
