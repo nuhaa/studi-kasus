@@ -23,7 +23,7 @@
     <div id="app">
         <nav class="navbar is-info">
           <div class="navbar-brand">
-              <a href="" class="navbar-item">OlShop</a>
+              <a href="/" class="navbar-item">OlShop</a>
               <a class="navbar-burger" role="button" aria-label="menu" aria-expanded="false" data-target="navMenu">
                 <span aria-hidden="true"></span>
                 <span aria-hidden="true"></span>

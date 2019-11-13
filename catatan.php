@@ -258,3 +258,30 @@
 
   sesuaikan views/vendor/pagination/default -> duplikat, sesuaikan dengan css nya bulma
 */
+
+/*
+  13 November 2019
+  51 Frontend - Showing Categories
+  - memunculkan kategori untuk di side bar nya
+
+  52 Frontend - Showing Product Detail
+  - menampilkan detail product dari homepage
+
+  53 Frontend - Showing Product List By Category
+  - menampilkan list product dari setiap kategori
+
+  55 Frontend - DRY Solution, Sidebar as Component
+  - membuat componen untuk sidebar
+
+  56 Frontend - DRY Solution for Passing Variable using VIewComposer
+  - buat compose, buat file App\Http\ViewComposers\SidebarViewComposer.php
+  - manfaatkan AppServiceProvider untuk membuka compose nya
+
+  57 Frontend - Add to Cart Function
+  - membuat controller baru untuk cart
+  - manfaatkan session untuk menambahkan produk
+  - add controller App\Http\Controllers\Frontend\CartController.php
+
+  58 Frontend - View Cart
+  - menampilkan session cart di view
+*/

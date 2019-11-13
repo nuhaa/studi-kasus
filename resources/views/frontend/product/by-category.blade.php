@@ -19,7 +19,7 @@
                     <h5><a href="{{ route('frontend.product.show', $product) }}">{{ $product->name }}</a></h5>
                     <p class="has-text-danger">{{ $product->getPrice() }}</p>
                   </div>
-                  <a href="{{ route('cart.add.item', $product) }}" class="button is-info">Add to Cart</a>
+                  <a href="" class="button is-info">Add to Cart</a>
                 </div>
               </div>
             </div>

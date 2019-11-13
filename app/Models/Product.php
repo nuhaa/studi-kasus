@@ -8,6 +8,7 @@ class Product extends Model
 {
     protected $fillable = ['name', 'slug', 'description', 'price', 'image'];
 
+    // digunakan untuk mendeklarasikan RouteKeyName untuk tiap URL
     public function getRouteKeyName()
     {
         return 'slug';
@@ -21,5 +22,10 @@ class Product extends Model
     public function categories()
     {
        return $this->belongsToMany(Category::class);
+    }
+
+    public function getPrice()
+    {
+         return 'Rp. ' . number_format($this->price, 0, ",", ".");
     }
 }
