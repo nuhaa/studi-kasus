@@ -45,6 +45,16 @@
               @endguest
 
               @auth
+                <div class="navbar-item">
+                    @php
+                        if (session()->has('cart')) {
+                            $cartTotal = count(session('cart'));
+                        }
+                    @endphp
+                    <a href="{{ route('cart.index') }}" class="has-text-danger">Cart
+                        ({{ $cartTotal }})
+                    </a>
+                </div>
                 <div class="navbar-item has-dropdown is-hoverable">
                   <div class="navbar-link">
                     <span>{{ auth()->user()->name }}</span>

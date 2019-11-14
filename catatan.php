@@ -285,3 +285,8 @@
   58 Frontend - View Cart
   - menampilkan session cart di view
 */
+
+/*
+  14 November 2019
+  59 Frontend - Fixing Cart
+*/
