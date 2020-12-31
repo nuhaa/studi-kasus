@@ -1,4 +1,4 @@
-@extends('admin.templates.default');
+@extends('admin.templates.default')
 
 @section('content')
 @include('admin.templates.partials._alert')
